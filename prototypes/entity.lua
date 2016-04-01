@@ -55,25 +55,25 @@ data:extend({
 		},
 
 		working_visualisations =
-    {
-      {
-        north_position = {1.03125, -1.55},
-        east_position = {-1.65625, -1.3},
-        south_position = {-1.875, -2.0},
-        west_position = {1.8437, -1.2},
-        animation =
-        {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery-fire.png",
-          frame_count = 29,
-          width = 16,
-          height = 35,
-          scale = 1.5,
-          shift = {0, -0.5625},
-          run_mode="backward"
-        },
-        light = {intensity = 0.4, size = 6}
-      }
-    },
+		{
+		  {
+			north_position = {1.03125, -1.55},
+			east_position = {-1.65625, -1.3},
+			south_position = {-1.875, -2.0},
+			west_position = {1.8437, -1.2},
+			animation =
+			{
+			  filename = "__base__/graphics/entity/oil-refinery/oil-refinery-fire.png",
+			  frame_count = 29,
+			  width = 16,
+			  height = 35,
+			  scale = 1.5,
+			  shift = {0, -0.5625},
+			  run_mode="backward"
+			},
+			light = {intensity = 0.4, size = 6}
+		  }
+		},
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 		working_sound =
 		{
@@ -96,81 +96,119 @@ data:extend({
 	
 	-- Nuclear Power Plant
 	{
-    type = "generator",
-    name = "nuclear-power-plant",
-    icon = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-    flags = {"placeable-neutral","player-creation", "placeable-off-grid", "not-on-map"},
-    minable = {mining_time = 1, result = "nuclear-power-plant"},
-    max_health = 600,
-    corpse = "big-remnants",
-	dying_explosion = "big-explosion",
-    effectivity = 4,
-    fluid_usage_per_tick = 0.9,
-    resistances = 
-    {
-      {
-        type = "fire",
-        percent = 70
-      }
-    },
-    fast_replaceable_group =  "steam-engine",
-    collision_box = {{-0.7, -0.6}, {0.7, 0.6}},
-    selection_box = {{-1.5, -1}, {1.5, 1}},
-    selectable_in_game = true,
-    fluid_box =
-    {
-      base_area = 0.1,
-      pipe_connections =
-      {
-       -- { position = {0, 0.8} }
-      },
-    },
-    energy_source =
-    {
-      type = "electric",
-      usage_priority = "secondary-output"
-    },
-    horizontal_animation =
-    {
-      filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-      width = 156,
-      height = 141,
-      frame_count = 1,
-      line_length = 8,
-      shift = {1.34, -0.06}
-    },
-    vertical_animation =
-    {
-      filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-      width = 156,
-      height = 141,
-      frame_count = 1,
-      line_length = 8,
-      shift = {0.812, 0.031}
-    },
-    smoke =
-    {
-      {
-        name = "smoke",
-        north_position = {0, -1.3},
-        east_position = {0, -1.3},
-        deviation = {0, 0},
-        frequency = 0.001,
-        starting_vertical_speed = 0
-      }
-    },
-    working_sound =
-    {
-      sound =
-      {
-        filename = "__base__/sound/steam-engine-90bpm.ogg",
-        volume = 0.1
-      },
-      match_speed_to_activity = true,
-    },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5
-  },
+		type = "boiler",
+		name="nuclear-power-plant"
+		icon = "__NuclearPower__/graphics/icons/nuclear-power-plant.png",
+		flags = {"placeable-neutral", "player-creation"},
+		minable = {hardness = 0.2, mining_time = 0.5, result = "nuclear-power-plant"},
+		max_health = 500,
+		corpse = "small-remnants",
+		resistances =
+		{
+		  {
+			type = "fire",
+			percent = 80
+		  }
+		},
+		energy_consumption = "25MW",
+		burner =
+		{
+		  effectivity = 1,
+		  fuel_inventory_size = 1,
+		  emissions = 0
+		},
+		working_sound =
+		{
+		  sound =
+		  {
+			filename = "__base__/sound/boiler.ogg",
+			volume = 0.8
+		  },
+		  max_sounds_per_type = 3
+		},
+		structure =
+		{
+		  left =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160,
+			shift = {0.72, -0.308}
+		  },
+		  down =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  },
+		  left_down =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  },
+		  right_down =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160,
+			shift = {0.72, -0.308}
+		  },
+		  left_up =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  },
+		  right_up =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  },
+		  t_down =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  },
+		  t_up =
+		  {
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			priority = "extra-high",
+			width = 180,
+			height = 160, 
+			shift = {0.72, -0.308}
+		  }
+		},
+		burning_cooldown = 20,
+		pictures = pipepictures(),
+		collision_box = {{-1.30,-1.30},{1.30,1.30}},
+		selection_box = {{-1.50,-1.50},{1.50,1.50}},
+		fluid_box =
+		{	
+			 base_area = 3,
+			 pipe_connections =
+			{
+				{position= {0, 2}},
+				{position= {0, -2}},
+				{position= {2, 0}},
+				{position= {-2, 0}}
+			}
+		}
+	},
   -- Uranium (Mining) Particles
   {
     type = "particle",
