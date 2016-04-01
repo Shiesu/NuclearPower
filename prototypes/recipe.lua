@@ -36,5 +36,16 @@ data:extend(
           {"iron-plate", 2},
         },
         result = "nuclear-power-plant"
-    }  
+    },
+	{
+        type = "recipe",
+        name = "access-port",
+        energy_required = 5,
+        enabled = "true",
+        ingredients =
+        {
+          {"iron-plate", 2},
+        },
+        result = "access-port"
+    }	
 })

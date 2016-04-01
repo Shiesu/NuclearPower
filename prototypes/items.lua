@@ -42,5 +42,15 @@ data:extend(
 		order = "b[steam-power]-b[nuclear-power-plant]",
         place_result = "nuclear-power-plant",
         stack_size = 2
+  },
+  {
+    type = "item",
+	name = "access-port",
+    icon = "__base__/graphics/icons/steel-chest.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "storage",
+    order = "a[items]-c[steel-chest]",
+    stack_size = 50,
+    place_result = "access-port",
   }
 })
