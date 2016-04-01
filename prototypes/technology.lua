@@ -6,8 +6,9 @@ data:extend(
 	{
 	type = "technology",
 	name = "nuclear-power",
-	icon = "__NuclearPower__/graphics/technology/uranium-processing.png",
+	icon = "__NuclearPower__/graphics/technology/uranium-processing-large.png",
 	prerequisites = {"sulfur-processing"}, -- Unsure about this. When should it actually be availible?
+	icon_size = 128,
 	unit =
 	{ -- Should change costs when we get to balancing.
 		count = 60,
@@ -34,4 +35,5 @@ data:extend(
 		}
 	}
 	}
+
 })

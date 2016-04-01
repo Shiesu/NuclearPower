@@ -96,114 +96,81 @@ data:extend({
 	
 	-- Nuclear Power Plant
 	{
-		type = "boiler",
-		name="nuclear-power-plant",
-		icon = "__NuclearPower__/graphics/icons/nuclear-power-plant.png",
-		flags = {"placeable-neutral", "player-creation"},
-		minable = {hardness = 0.2, mining_time = 0.5, result = "nuclear-power-plant"},
-		max_health = 500,
-		corpse = "small-remnants",
-		fire = {{}},
-		resistances ={{type = "fire",percent = 80}},
-		energy_consumption = "25MW",
-		burner =
-		{
-		  effectivity = 1,
-		  fuel_inventory_size = 1,
-		  emissions = 0
-		},
-		working_sound =
-		{
-		  sound =
-		  {
-			filename = "__base__/sound/boiler.ogg",
-			volume = 0.8
-		  },
-		  max_sounds_per_type = 3
-		},
-		structure =
-		{
-		  left =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160,
-			shift = {0.72, -0.308}
-		  },
-		  down =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  },
-		  left_down =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  },
-		  right_down =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160,
-			shift = {0.72, -0.308}
-		  },
-		  left_up =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  },
-		  right_up =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  },
-		  t_down =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  },
-		  t_up =
-		  {
-			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-			priority = "extra-high",
-			width = 180,
-			height = 160, 
-			shift = {0.72, -0.308}
-		  }
-		},
-		burning_cooldown = 20,
-		pictures = pipepictures(),
-		collision_box = {{-1.30,-1.30},{1.30,1.30}},
-		selection_box = {{-1.50,-1.50},{1.50,1.50}},
-		fluid_box =
-		{	
-			 base_area = 3,
-			 pipe_connections =
-			{
-				{position= {0, 2}},
-				{position= {0, -2}},
-				{position= {2, 0}},
-				{position= {-2, 0}}
-			}
-		}
-	},
+     type = "generator",
+     name = "nuclear-power-plant",
+     icon = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+     flags = {"placeable-neutral","player-creation"},
+     minable = {mining_time = 1, result = "nuclear-power-plant"},
+     max_health = 600,
+     corpse = "big-remnants",
+ 	dying_explosion = "big-explosion",
+     effectivity = 4,
+     fluid_usage_per_tick = 0.9,
+     resistances = 
+     {
+       {
+         type = "fire",
+         percent = 70
+       }
+     },
+     fast_replaceable_group =  "steam-engine",
+     collision_box = {{-0.7, -0.6}, {0.7, 0.6}},
+     selection_box = {{-1.5, -1}, {1.5, 1}},
+     selectable_in_game = true,
+     fluid_box =
+     {
+       base_area = 0.1,
+       pipe_connections =
+       {
+        -- { position = {0, 0.8} }
+       },
+     },
+     energy_source =
+     {
+       type = "electric",
+       usage_priority = "secondary-output"
+     },
+     horizontal_animation =
+     {
+       filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+       width = 156,
+       height = 141,
+       frame_count = 1,
+       line_length = 8,
+       shift = {1.34, -0.06}
+     },
+     vertical_animation =
+     {
+       filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+       width = 156,
+       height = 141,
+       frame_count = 1,
+       line_length = 8,
+       shift = {0.812, 0.031}
+     },
+     smoke =
+     {
+       {
+         name = "smoke",
+         north_position = {0, -1.3},
+         east_position = {0, -1.3},
+         deviation = {0, 0},
+         frequency = 0.001,
+         starting_vertical_speed = 0
+       }
+     },
+     working_sound =
+     {
+       sound =
+       {
+         filename = "__base__/sound/steam-engine-90bpm.ogg",
+         volume = 0.1
+       },
+       match_speed_to_activity = true,
+     },
+     min_perceived_performance = 0.25,
+     performance_to_sound_speedup = 0.5
+   },
 	
 	-- Access port
 	{

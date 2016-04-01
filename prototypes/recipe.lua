@@ -7,7 +7,7 @@ data:extend(
         type = "recipe",
         name = "processed-uranium",
 		category="uranium-chemistry",
-        energy_required = 15,
+        energy_required = 1,
         enabled = "true",
         ingredients =
         {
@@ -18,7 +18,7 @@ data:extend(
     {
         type = "recipe",
         name = "uranium-refinery",
-        energy_required = 15,
+        energy_required = 1,
         enabled = "true",
         ingredients =
         {
@@ -29,7 +29,7 @@ data:extend(
     {
         type = "recipe",
         name = "nuclear-power-plant",
-        energy_required = 15,
+        energy_required = 1,
         enabled = "true",
         ingredients =
         {
@@ -40,7 +40,7 @@ data:extend(
 	{
         type = "recipe",
         name = "access-port",
-        energy_required = 5,
+        energy_required = 1,
         enabled = "true",
         ingredients =
         {
