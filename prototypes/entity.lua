@@ -97,19 +97,14 @@ data:extend({
 	-- Nuclear Power Plant
 	{
 		type = "boiler",
-		name="nuclear-power-plant"
+		name="nuclear-power-plant",
 		icon = "__NuclearPower__/graphics/icons/nuclear-power-plant.png",
 		flags = {"placeable-neutral", "player-creation"},
 		minable = {hardness = 0.2, mining_time = 0.5, result = "nuclear-power-plant"},
 		max_health = 500,
 		corpse = "small-remnants",
-		resistances =
-		{
-		  {
-			type = "fire",
-			percent = 80
-		  }
-		},
+		fire = {{}},
+		resistances ={{type = "fire",percent = 80}},
 		energy_consumption = "25MW",
 		burner =
 		{
