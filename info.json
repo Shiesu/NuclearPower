@@ -1,0 +1,9 @@
+{
+	"name": "NuclearPower",
+	"version": "0.0.1",
+	"title": "NuclearPower",
+	"author": "Shiesu & Stormseer",
+	"homepage": "www.blank.com",
+	"description": "Provides Uranium and a way to use it to generate power.",
+	"dependencies": ["base >= 0.12.00"]
+}
