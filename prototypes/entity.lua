@@ -106,7 +106,7 @@ data:extend({
      corpse = "big-remnants",
  	 dying_explosion = "big-explosion",
      effectivity = 4,
-     fluid_usage_per_tick = 0.9,
+     fluid_usage_per_tick = 0.8,
 	 module_specification =
 	{
 		module_slots = 4 -- Is this how we want to add modulation?
@@ -133,7 +133,7 @@ data:extend({
      energy_source =
      {
        type = "electric",
-       usage_priority = "secondary-output"
+       usage_priority = "primary-output"
      },
      horizontal_animation =
      {
