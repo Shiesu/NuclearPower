@@ -1,4 +1,5 @@
 data:extend({
+		-- Uranium Refinery
 	{
 		type = "assembling-machine",
         name = "uranium-refinery",
@@ -103,9 +104,13 @@ data:extend({
      minable = {mining_time = 1, result = "nuclear-power-plant"},
      max_health = 600,
      corpse = "big-remnants",
- 	dying_explosion = "big-explosion",
+ 	 dying_explosion = "big-explosion",
      effectivity = 4,
      fluid_usage_per_tick = 0.9,
+	 module_specification =
+	{
+		module_slots = 4 -- Is this how we want to add modulation?
+	},
      resistances = 
      {
        {
@@ -114,8 +119,8 @@ data:extend({
        }
      },
      fast_replaceable_group =  "steam-engine",
-     collision_box = {{-0.7, -0.6}, {0.7, 0.6}},
-     selection_box = {{-1.5, -1}, {1.5, 1}},
+     collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
+     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
      selectable_in_game = true,
      fluid_box =
      {
@@ -137,7 +142,8 @@ data:extend({
        height = 141,
        frame_count = 1,
        line_length = 8,
-       shift = {1.34, -0.06}
+       --shift = {1.34, -0.06}
+	   shift = {0.5, -0.078125}
      },
      vertical_animation =
      {
@@ -146,7 +152,8 @@ data:extend({
        height = 141,
        frame_count = 1,
        line_length = 8,
-       shift = {0.812, 0.031}
+       --shift = {0.812, 0.031}
+	   shift = {0.5, -0.078125}
      },
      smoke =
      {
