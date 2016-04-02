@@ -98,19 +98,15 @@ data:extend({
 	-- Nuclear Power Plant
 	{
      type = "generator",
-     name = "nuclear-power-plant",
+     name = "nuclear-power-plant", -- This is where the error is, because if you change the name the error message also changes.
      icon = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
      flags = {"placeable-neutral","player-creation"},
      minable = {mining_time = 1, result = "nuclear-power-plant"},
-     max_health = 600,
+     max_health = 1000,
      corpse = "big-remnants",
  	 dying_explosion = "big-explosion",
      effectivity = 4,
      fluid_usage_per_tick = 0.8,
-	 module_specification =
-	{
-		module_slots = 4 -- Is this how we want to add modulation?
-	},
      resistances = 
      {
        {
@@ -121,10 +117,11 @@ data:extend({
      fast_replaceable_group =  "steam-engine",
      collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
      selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-     selectable_in_game = true,
+     selectable_in_game = false,
      fluid_box =
      {
-       base_area = 0.1,
+       base_area = 1,
+	   pipe_covers = pipecoverspictures(),
        pipe_connections =
        {
         -- { position = {0, 0.8} }
@@ -158,25 +155,26 @@ data:extend({
      smoke =
      {
        {
-         name = "smoke",
-         north_position = {0, -1.3},
-         east_position = {0, -1.3},
-         deviation = {0, 0},
-         frequency = 0.001,
-         starting_vertical_speed = 0
+         --name = "smoke",
+         --north_position = {0, -1.3},
+         --east_position = {0, -1.3},
+         --deviation = {0, 0},
+         --frequency = 0.001,
+         --starting_vertical_speed = 0
        }
      },
-     working_sound =
+     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+	 working_sound =
      {
        sound =
        {
          filename = "__base__/sound/steam-engine-90bpm.ogg",
-         volume = 0.1
+         volume = 0.2
        },
        match_speed_to_activity = true,
      },
      min_perceived_performance = 0.25,
-     performance_to_sound_speedup = 0.5
+     performance_to_sound_speedup = 0.3
    },
 	
 	-- Access port
@@ -278,7 +276,7 @@ data:extend({
         frame_count = 1
       }
     }
-  }
+  },
   
 	-- Liquid Uranium (Not accessible by player)
   {
