@@ -1,5 +1,5 @@
 data:extend({
-		-- Uranium Refinery
+	-- Uranium Refinery
 	{
 		type = "assembling-machine",
         name = "uranium-refinery",
@@ -210,7 +210,7 @@ data:extend({
     inventory_size = 1
   },
   
-  -- Uranium (Mining) Particles
+	-- Uranium (Mining) Particles
   {
     type = "particle",
     name = "uranium-particle",
@@ -279,4 +279,19 @@ data:extend({
       }
     }
   }
+  
+	-- Liquid Uranium (Not accessible by player)
+  {
+	type = "fluid",
+	name = "liquid-uranium",
+	default_temperature = 100,
+	max_temperature = 100,
+	heat_capacity = "2KJ",
+	base_color = {r=0.23, g=0.47, b=0},
+	flow_color = {r=0.3, g=0.6, b=0},
+	icon = "__base__/graphics/icons/fluid/water.png",
+	order = "a[fluid]-z[liquid-uranium]",
+	pressure_to_speed_ratio = 0.4,
+	flow_to_energy_ratio = 0.59,
+  },
 })
