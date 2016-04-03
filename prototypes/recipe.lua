@@ -4,17 +4,21 @@
 data:extend(
 {
     {
-        type = "recipe",
-        name = "processed-uranium",
-		category="uranium-chemistry",
-        energy_required = 1,
-        enabled = "true",
-        ingredients =
-        {
-          {"uranium", 2},
-        },
-        result = "processed-uranium"
-    },
+		type = "recipe",
+		name = "processed-uranium",
+		category = "chemistry",
+		energy_required = 1,
+		enabled = true,
+		ingredients =
+		{
+			{type="item", name="uranium", amount=2}
+		},
+		results=
+		{
+			{type="fluid", name="processed-uranium", amount=1}
+		},
+		subgroup = "fluid-recipes"
+	},
     {
         type = "recipe",
         name = "uranium-refinery",

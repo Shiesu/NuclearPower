@@ -12,15 +12,15 @@ data:extend(
         order = "z[uranium]",
         stack_size = 200
     },
-    {
-        type = "item",
-        name = "processed-uranium",
-        icon = "__NuclearPower__/graphics/icons/uranium-barrel.png",
-        flags = {"goes-to-main-inventory"},
-        subgroup = "intermediate-product",
-        order = "z[uranium-barrel]",
-        stack_size = 50
-  },
+  --  {
+  --      type = "item",
+  --      name = "processed-uranium",
+  --      icon = "__NuclearPower__/graphics/icons/uranium-barrel.png",
+  --      flags = {"goes-to-main-inventory"},
+  --      subgroup = "intermediate-product",
+  --      order = "z[uranium-barrel]",
+  --      stack_size = 50
+  --},
   {
         type = "item",
         name = "uranium-refinery",

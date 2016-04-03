@@ -15,6 +15,16 @@ data:extend({
 		{
 		  module_slots = 4 -- Should maybe be 0?
 		},
+		fluid_boxes =
+		{
+			{
+			production_type = "output",
+			pipe_covers = pipecoverspictures(),
+			base_level = 1,
+			pipe_connections = {{ position = {0, -3} }}
+			},
+		},
+		pipe_covers = pipecoverspictures(),
 		allowed_effects = {"consumption", "speed", "productivity", "pollution"},
 		animation =
 		{
@@ -97,85 +107,84 @@ data:extend({
 	
 	-- Nuclear Power Plant
 	{
-     type = "generator",
-     name = "nuclear-power-plant", -- This is where the error is, because if you change the name the error message also changes.
-     icon = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-     flags = {"placeable-neutral","player-creation"},
-     minable = {mining_time = 1, result = "nuclear-power-plant"},
-     max_health = 1000,
-     corpse = "big-remnants",
- 	 dying_explosion = "big-explosion",
-     effectivity = 4,
-     fluid_usage_per_tick = 0.8,
-     resistances = 
-     {
-       {
-         type = "fire",
-         percent = 70
-       }
-     },
-     fast_replaceable_group =  "steam-engine",
-     collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
-     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-     selectable_in_game = false,
-     fluid_box =
-     {
-       base_area = 1,
-	   pipe_covers = pipecoverspictures(),
-       pipe_connections =
-       {
-        -- { position = {0, 0.8} }
-       },
-     },
-     energy_source =
-     {
-       type = "electric",
-       usage_priority = "primary-output"
-     },
-     horizontal_animation =
-     {
-       filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-       width = 156,
-       height = 141,
-       frame_count = 1,
-       line_length = 8,
-       --shift = {1.34, -0.06}
-	   shift = {0.5, -0.078125}
-     },
-     vertical_animation =
-     {
-       filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
-       width = 156,
-       height = 141,
-       frame_count = 1,
-       line_length = 8,
-       --shift = {0.812, 0.031}
-	   shift = {0.5, -0.078125}
-     },
-     smoke =
-     {
-       {
-         --name = "smoke",
-         --north_position = {0, -1.3},
-         --east_position = {0, -1.3},
-         --deviation = {0, 0},
-         --frequency = 0.001,
-         --starting_vertical_speed = 0
-       }
-     },
-     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	 working_sound =
-     {
-       sound =
-       {
-         filename = "__base__/sound/steam-engine-90bpm.ogg",
-         volume = 0.2
-       },
-       match_speed_to_activity = true,
-     },
-     min_perceived_performance = 0.25,
-     performance_to_sound_speedup = 0.3
-   },
+		type = "generator",
+		name = "nuclear-power-plant",
+		icon = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+		flags = {"placeable-neutral", "player-creation"},
+		minable = {mining_time = 1, result = "nuclear-power-plant"},
+		max_health = 1000,
+		corpse = "big-remnants",
+		dying_explosion = "big-explosion",
+		fast_replaceable_group =  "steam-engine",
+		collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
+		selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+		selectable_in_game = true,
+		resistances = 
+		{
+			{
+				type = "fire",
+				percent = 70
+			}
+		},
+		
+		effectivity = 4,
+		fluid_usage_per_tick = 0.8,
+		fluid_box =
+		{
+			base_area = 1,
+			pipe_covers = pipecoverspictures(),
+			pipe_connections = 
+			{
+				{position = {-1, -2}},
+				{position = {1, -2}}
+			}
+		},
+		energy_source = 
+		{
+			type = "electric",
+			usage_priority = "primary-output"
+		},
+		
+		horizontal_animation =
+		{
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			width = 156,
+			height = 141,
+			frame_count = 1,
+			line_length = 8,
+			shift = {0.5, -0.078125}
+		},
+		vertical_animation =
+		{
+			filename = "__NuclearPower__/graphics/entity/nuclear-power-plant.png",
+			width = 156,
+			height = 141,
+			frame_count = 1,
+			line_length = 8,
+			shift = {0.5, -0.078125}
+		},
+		smoke = 
+		{
+			-- Intentionally blank.
+		},
+		
+		vehicle_impact_sound = 
+		{
+			filename = "__base__/sound/car-metal-impact.ogg",
+			volume = 0.65
+		},
+		working_sound = 
+		{
+			sound = 
+			{
+				filename = "__base__/sound/chemical-plant.ogg",
+				volume = 0.8
+			},
+			match_speed_to_activity = true,
+		},
+		min_percieved_performance = 0.25,
+		performance_to_sound_speedup = 0.3
+	},
 	
 	-- Access port
 	{
@@ -278,17 +287,17 @@ data:extend({
     }
   },
   
-	-- Liquid Uranium (Not accessible by player)
+	-- Processed Uranium (Not accessible by player)
   {
 	type = "fluid",
-	name = "liquid-uranium",
+	name = "processed-uranium",
 	default_temperature = 100,
 	max_temperature = 100,
 	heat_capacity = "2KJ",
 	base_color = {r=0.23, g=0.47, b=0},
 	flow_color = {r=0.3, g=0.6, b=0},
-	icon = "__base__/graphics/icons/fluid/water.png",
-	order = "a[fluid]-z[liquid-uranium]",
+	icon = "__base__/graphics/icons/fluid/lubricant.png",
+	order = "a[fluid]-z[processed-uranium]",
 	pressure_to_speed_ratio = 0.4,
 	flow_to_energy_ratio = 0.59,
   },
